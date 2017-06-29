@@ -5,6 +5,7 @@ import { ViewChild, AfterViewInit } from '@angular/core';
 import { Slides } from 'ionic-angular';
 
 import { UsuarioService } from '../../providers/usuario/usuario';
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -64,7 +65,9 @@ export class LoginPage implements AfterViewInit {
   }
 
   ingresar(){
-    // Ingresar al Hombe
+    // Ingresar al Home
+
+    this.navCtrl.setRoot(HomePage)
 
   }
 
