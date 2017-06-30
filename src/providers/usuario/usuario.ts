@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFireModule } from 'angularfire2'
 
 import { AngularFireDatabase } from 'angularfire2/database';
 
-import * as firebase from 'firebase';
 
 import { Storage } from '@ionic/storage';
 import { Platform } from 'ionic-angular';
@@ -87,6 +85,11 @@ export class UsuarioService {
   
     })
     return promesa  
+  }
+
+  borrar_usuario(){
+    this.clave = null
+    this.guardar_storage( )
   }
 
 }

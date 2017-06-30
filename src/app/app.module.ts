@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 
 // Servicios
 import { UsuarioService } from '../providers/usuario/usuario';
+import { UbicacionService } from '../providers/ubicacion/ubicacion';
 
 // Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -18,6 +19,12 @@ import { firebaseConfig } from '../config/firebase.config'
 
 // Storage
 import { IonicStorageModule } from '@ionic/storage';
+
+// Plugins
+import { Geolocation } from '@ionic-native/geolocation';
+
+// Mapa
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -30,7 +37,10 @@ import { IonicStorageModule } from '@ionic/storage';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAwzyYtq8EIe9PaZm3Wy3ouBAqiFVRDcdk'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,7 +51,9 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsuarioService
+    UsuarioService,
+    Geolocation,
+    UbicacionService
   ]
 })
 export class AppModule {}
